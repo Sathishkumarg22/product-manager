@@ -23,9 +23,10 @@ class _ProductCardState extends State<ProductCard>
       vsync: this,
       duration: const Duration(milliseconds: 200),
     );
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.95).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 0.95,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
@@ -44,16 +45,16 @@ class _ProductCardState extends State<ProductCard>
         ),
       ).catchError((error) {
         debugPrint('Navigation error: $error');
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to navigate: $error')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Failed to navigate: $error')));
       });
     } catch (e) {
       debugPrint('Navigation exception: $e');
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Navigation failed: $e')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Navigation failed: $e')));
       }
     }
   }
@@ -150,14 +151,15 @@ class _ProductCardState extends State<ProductCard>
           color: Colors.grey.shade200,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: imageUrl.isNotEmpty
-            ? Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) =>
-                    _buildImagePlaceholder(),
-              )
-            : _buildImagePlaceholder(),
+        child:
+            imageUrl.isNotEmpty
+                ? Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder:
+                      (context, error, stackTrace) => _buildImagePlaceholder(),
+                )
+                : _buildImagePlaceholder(),
       ),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:demo/models/product.dart';
 import 'package:equatable/equatable.dart';
 
@@ -14,7 +13,9 @@ class ProductInitial extends ProductState {}
 class ProductLoading extends ProductState {}
 
 class ProductAdded extends ProductState {}
+
 class ProductUpdated extends ProductState {}
+
 class ProductDeleted extends ProductState {}
 
 class ProductLoaded extends ProductState {

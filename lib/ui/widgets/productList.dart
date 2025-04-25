@@ -43,8 +43,6 @@ class _ProductListState extends State<ProductList>
   Widget build(BuildContext context) {
     return BlocListener<ProductBloc, ProductState>(
       listener: (context, state) {
-        print('STATE: ${state.runtimeType}');
-        print('ProductList state::::: $state');
         if (state is ProductDeleted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -53,7 +51,6 @@ class _ProductListState extends State<ProductList>
             ),
           );
         } else if (state is ProductError) {
-          print('ProductList error::::: ${state.message}');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(state.message),

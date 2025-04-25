@@ -23,9 +23,10 @@ class _CustomSearchBarState extends State<CustomSearchBar>
       vsync: this,
       duration: const Duration(milliseconds: 600),
     );
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-    );
+    _fadeAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
     _controller.forward();
   }
 
@@ -48,7 +49,10 @@ class _CustomSearchBarState extends State<CustomSearchBar>
           decoration: InputDecoration(
             hintText: 'Search products...',
             hintStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
-            prefixIcon: Icon(Icons.search, color: Colors.white.withOpacity(0.9)),
+            prefixIcon: Icon(
+              Icons.search,
+              color: Colors.white.withOpacity(0.9),
+            ),
             filled: true,
             fillColor: Colors.white.withOpacity(0.2),
             border: OutlineInputBorder(

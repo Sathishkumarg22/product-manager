@@ -38,7 +38,6 @@ class ProductListScreen extends StatelessWidget {
       ),
       floatingActionButton: AnimatedFAB(
         onPressed: () {
-          print('Navigating to ProductFormScreen');
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -54,23 +53,3 @@ class ProductListScreen extends StatelessWidget {
     );
   }
 }
-
-// class _AppBar extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return AppBar(
-//       title: const Text(
-//         'Products',
-//         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-//       ),
-//       backgroundColor: Colors.transparent,
-//       elevation: 0,
-//       actions: [
-//         IconButton(
-//           icon: const Icon(Icons.logout, color: Colors.white),
-//           onPressed: () => context.read<AuthBloc>().add(LogoutRequested()),
-//         ),
-//       ],
-//     );
-//   }
-// }

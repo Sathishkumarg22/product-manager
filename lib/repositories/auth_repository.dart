@@ -1,3 +1,4 @@
+import 'package:demo/services/api_url.dart';
 import 'package:dio/dio.dart';
 import 'package:demo/services/api_service.dart';
 import 'package:demo/services/storage_service.dart';
@@ -11,15 +12,11 @@ class AuthRepository {
   Future<String> login(String username, String password) async {
     try {
       final response = await apiService.dio.post(
-        'auth/login',
-        data: {
-          'username': "mor_2314",
-          'password': "83r5^_",
-        },
+        ApiUrl.login,
+        data: {'username': "mor_2314", 'password': "83r5^_"},
       );
-      print('Login Response: ${response.data}');
-      
-      if (response.statusCode == 200 && response.data['token'] != null) {
+
+      if (response.data['token'] != null) {
         final token = response.data['token'] as String;
         await storageService.saveToken(token);
         return token;

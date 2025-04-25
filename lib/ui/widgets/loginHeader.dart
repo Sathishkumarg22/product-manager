@@ -27,10 +27,7 @@ class LoginHeader extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           'Sign in to continue',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.white.withOpacity(0.7),
-          ),
+          style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.7)),
         ),
       ],
     );

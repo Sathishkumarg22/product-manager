@@ -1,4 +1,3 @@
-
 import 'package:demo/blocs/product/product_event.dart';
 import 'package:demo/blocs/product/product_state.dart';
 import 'package:demo/repositories/product_repository.dart';
@@ -15,7 +14,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     on<SearchProducts>(_onSearchProducts);
   }
 
-  Future<void> _onLoadProducts(LoadProducts event, Emitter<ProductState> emit) async {
+  Future<void> _onLoadProducts(
+    LoadProducts event,
+    Emitter<ProductState> emit,
+  ) async {
     emit(ProductLoading());
     try {
       final products = await productRepository.getProducts();
@@ -25,44 +27,48 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     }
   }
 
-  Future<void> _onAddProduct(AddProduct event, Emitter<ProductState> emit) async {
+  Future<void> _onAddProduct(
+    AddProduct event,
+    Emitter<ProductState> emit,
+  ) async {
     try {
-      print('Adding product: ${event.product.toJson()}');
       await productRepository.addProduct(event.product);
-      print('Product added successfully');
       emit(ProductAdded());
     } catch (e) {
-      print('Error adding product: $e');
       emit(ProductError(message: e.toString()));
     }
   }
 
-  Future<void> _onUpdateProduct(UpdateProduct event, Emitter<ProductState> emit) async {
-   try {
+  Future<void> _onUpdateProduct(
+    UpdateProduct event,
+    Emitter<ProductState> emit,
+  ) async {
+    try {
       await productRepository.updateProduct(event.product);
-      print('Product updated successfully');
       emit(ProductUpdated());
     } catch (e) {
-      print('Error updating product: $e');
       emit(ProductError(message: e.toString()));
     }
   }
 
-  Future<void> _onDeleteProduct(DeleteProduct event, Emitter<ProductState> emit) async {
+  Future<void> _onDeleteProduct(
+    DeleteProduct event,
+    Emitter<ProductState> emit,
+  ) async {
     try {
-      print('product ID:::: ${event.id}');
       await productRepository.deleteProduct(event.id);
-      print('deleted successfully..');
       emit(ProductDeleted());
       final products = await productRepository.getProducts();
       emit(ProductLoaded(products: products));
     } catch (e) {
-      print('Error deleting:::: $e');
       emit(ProductError(message: e.toString()));
     }
   }
 
-  Future<void> _onSearchProducts(SearchProducts event, Emitter<ProductState> emit) async {
+  Future<void> _onSearchProducts(
+    SearchProducts event,
+    Emitter<ProductState> emit,
+  ) async {
     emit(ProductLoading());
     try {
       final products = await productRepository.searchProducts(event.query);

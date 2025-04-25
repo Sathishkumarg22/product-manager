@@ -28,7 +28,6 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
 
   @override
   void initState() {
-    print('ProductFormScreen initState');
     super.initState();
     _nameController = TextEditingController(text: widget.product?.name ?? '');
     _priceController = TextEditingController(
@@ -57,12 +56,9 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('build');
     return BlocListener<ProductBloc, ProductState>(
       listener: (context, state) {
-        print('BlocListener received state: $state');
         if (state is ProductAdded || state is ProductUpdated) {
-          print('ProductAdded received');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
@@ -71,10 +67,8 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
             ),
           );
           context.read<ProductBloc>().add(LoadProducts());
-          print('Navigating back to ProductListScreen');
           Navigator.pop(context);
         } else if (state is ProductError) {
-          print('ProductError state received: ${state.message}');
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.message)));
