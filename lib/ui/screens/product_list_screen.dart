@@ -1,6 +1,7 @@
 import 'package:demo/blocs/auth/auth_bloc.dart';
 import 'package:demo/blocs/auth/auth_event.dart';
 import 'package:demo/blocs/product/product_bloc.dart';
+import 'package:demo/core/Colors.dart';
 import 'package:demo/ui/screens/product_form_screen.dart';
 import 'package:demo/ui/widgets/animatedFAB.dart';
 import 'package:demo/ui/widgets/appBar.dart';
@@ -15,15 +16,8 @@ class ProductListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.blue.shade300, Colors.purple.shade400],
-          ),
-        ),
-        child: SafeArea(
+      backgroundColor: AppColors.errorColor,
+      body: SafeArea(
           child: Column(
             children: [
               CustomAppBar(
@@ -35,7 +29,6 @@ class ProductListScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
       floatingActionButton: AnimatedFAB(
         onPressed: () {
           Navigator.push(

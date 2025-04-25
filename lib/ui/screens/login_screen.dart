@@ -1,3 +1,4 @@
+import 'package:demo/core/Colors.dart';
 import 'package:demo/ui/widgets/loginForm.dart';
 import 'package:demo/ui/widgets/loginHeader.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +12,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.blue.shade300, Colors.purple.shade400],
-          ),
-        ),
-        child: SafeArea(
+      backgroundColor: AppColors.errorColor,
+      body: SafeArea(
           child: BlocListener<AuthBloc, AuthState>(
             listener: (context, state) {
               if (state is AuthError) {
@@ -46,7 +40,6 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

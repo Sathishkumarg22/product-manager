@@ -1,3 +1,4 @@
+import 'package:demo/core/Colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomSubmitButton extends StatelessWidget {
@@ -26,7 +27,7 @@ class CustomSubmitButton extends StatelessWidget {
               onPressed: enabled ? onPressed : null,
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: AppColors.textColor,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 32,
                   vertical: 16,

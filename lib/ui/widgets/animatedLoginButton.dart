@@ -22,7 +22,7 @@ class AnimatedLoginButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           foregroundColor: Colors.blue.shade700,
-          padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 10),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),

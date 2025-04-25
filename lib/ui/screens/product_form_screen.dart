@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:demo/blocs/product/product_bloc.dart';
 import 'package:demo/blocs/product/product_event.dart';
 import 'package:demo/blocs/product/product_state.dart';
+import 'package:demo/core/Colors.dart';
 import 'package:demo/models/product.dart';
 import 'package:demo/ui/widgets/animatedTextField.dart';
 import 'package:demo/ui/widgets/customeButton.dart';
@@ -76,17 +77,8 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
       },
       child: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.blue.shade300, Colors.purple.shade400],
-              ),
-            ),
-          ),
           Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: AppColors.errorColor,
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(kToolbarHeight),
               child: AppBar(
