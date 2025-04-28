@@ -4,6 +4,7 @@ import 'package:demo/blocs/product/product_bloc.dart';
 import 'package:demo/blocs/product/product_event.dart';
 import 'package:demo/blocs/product/product_state.dart';
 import 'package:demo/core/Colors.dart';
+import 'package:demo/core/Constant.dart';
 import 'package:demo/models/product.dart';
 import 'package:demo/ui/widgets/animatedTextField.dart';
 import 'package:demo/ui/widgets/customeButton.dart';
@@ -96,14 +97,14 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(Constants.number12),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(Constants.number16),
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(Constants.number16),
                         gradient: LinearGradient(
                           colors: [
                             Colors.white.withOpacity(0.3),
@@ -117,13 +118,13 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(Constants.number20),
                         child: Form(
                           key: _formKey,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const SizedBox(height: 8),
+                              const SizedBox(height: Constants.number8),
                               AnimatedTextField(
                                 controller: _nameController,
                                 label: 'Name',
@@ -133,7 +134,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                                     (value) =>
                                         value!.isEmpty ? 'Required' : null,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: Constants.number16),
                               AnimatedTextField(
                                 controller: _priceController,
                                 label: 'Price',
@@ -160,7 +161,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                                     (value) =>
                                         value!.isEmpty ? 'Required' : null,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: Constants.number16),
                               AnimatedTextField(
                                 controller: _descriptionController,
                                 label: 'Description',
@@ -171,7 +172,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                                     (value) =>
                                         value!.isEmpty ? 'Required' : null,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: Constants.number16),
                               AnimatedTextField(
                                 controller: _categoryController,
                                 label: 'Category',
@@ -181,7 +182,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                                     (value) =>
                                         value!.isEmpty ? 'Required' : null,
                               ),
-                              const SizedBox(height: 24),
+                              const SizedBox(height: Constants.number24),
                               Center(
                                 child: CustomSubmitButton(
                                   label:

@@ -23,7 +23,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       final products = await productRepository.getProducts();
       emit(ProductLoaded(products: products));
     } catch (e) {
-      emit(ProductError(message: e.toString()));
+      emit(ProductError(message: e.toString(), error: ''));
     }
   }
 
@@ -35,7 +35,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       await productRepository.addProduct(event.product);
       emit(ProductAdded());
     } catch (e) {
-      emit(ProductError(message: e.toString()));
+      emit(ProductError(message: e.toString(), error: ''));
     }
   }
 
@@ -47,7 +47,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       await productRepository.updateProduct(event.product);
       emit(ProductUpdated());
     } catch (e) {
-      emit(ProductError(message: e.toString()));
+      emit(ProductError(message: e.toString(), error: ''));
     }
   }
 
@@ -61,7 +61,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       final products = await productRepository.getProducts();
       emit(ProductLoaded(products: products));
     } catch (e) {
-      emit(ProductError(message: e.toString()));
+      emit(ProductError(message: e.toString(), error: ''));
     }
   }
 
@@ -74,7 +74,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       final products = await productRepository.searchProducts(event.query);
       emit(ProductLoaded(products: products));
     } catch (e) {
-      emit(ProductError(message: e.toString()));
+      emit(ProductError(message: e.toString(), error: ''));
     }
   }
 }

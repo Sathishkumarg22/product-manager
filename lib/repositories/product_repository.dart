@@ -4,7 +4,8 @@ import 'package:demo/services/api_url.dart';
 import 'package:dio/dio.dart';
 
 class ProductRepository {
-  final ApiService apiService = ApiService();
+  final ApiService apiService;
+  ProductRepository({Dio? dio}) : apiService = ApiService(dio: dio);
 
   Future<List<Product>> getProducts() async {
     try {

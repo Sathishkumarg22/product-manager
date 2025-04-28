@@ -30,7 +30,7 @@ class ProductLoaded extends ProductState {
 class ProductError extends ProductState {
   final String message;
 
-  const ProductError({required this.message});
+  const ProductError({required this.message, required String error});
 
   @override
   List<Object> get props => [message];

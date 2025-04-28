@@ -8,8 +8,8 @@ class ApiService {
     validateStatus: (status) => status! < 500,
   ));
 
-  ApiService() {
-    dio.interceptors.add(InterceptorsWrapper(
+  ApiService({Dio? dio}) {
+    dio?.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) async {
         if (!options.path.contains(ApiUrl.login)) {
           final token = await StorageService().getToken();

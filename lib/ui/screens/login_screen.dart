@@ -1,4 +1,5 @@
 import 'package:demo/core/Colors.dart';
+import 'package:demo/core/Constant.dart';
 import 'package:demo/ui/widgets/loginForm.dart';
 import 'package:demo/ui/widgets/loginHeader.dart';
 import 'package:flutter/material.dart';
@@ -27,12 +28,12 @@ class LoginScreen extends StatelessWidget {
             },
             child: Center(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                padding: const EdgeInsets.symmetric(horizontal: Constants.number24),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const LoginHeader(),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: Constants.number40),
                     LoginForm(),
                   ],
                 ),

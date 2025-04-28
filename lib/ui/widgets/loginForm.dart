@@ -1,6 +1,7 @@
 import 'package:demo/blocs/auth/auth_bloc.dart';
 import 'package:demo/blocs/auth/auth_event.dart';
 import 'package:demo/blocs/auth/auth_state.dart';
+import 'package:demo/core/Constant.dart';
 import 'package:demo/ui/widgets/animatedLoginButton.dart';
 import 'package:demo/ui/widgets/animatedTextField.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class LoginFormState extends State<LoginForm>
             icon: Icons.person,
             delay: const Duration(milliseconds: 200),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: Constants.number16),
           AnimatedTextField(
             controller: passwordController,
             label: 'Password',
@@ -63,7 +64,7 @@ class LoginFormState extends State<LoginForm>
             obscureText: true,
             delay: const Duration(milliseconds: 400),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: Constants.number16),
           BlocBuilder<AuthBloc, AuthState>(
             builder: (context, state) {
               return AnimatedLoginButton(

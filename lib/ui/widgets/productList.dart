@@ -1,6 +1,7 @@
 import 'package:demo/blocs/product/product_bloc.dart';
 import 'package:demo/blocs/product/product_event.dart';
 import 'package:demo/blocs/product/product_state.dart';
+import 'package:demo/core/Constant.dart';
 import 'package:demo/ui/widgets/animatedProductCard.dart';
 import 'package:demo/ui/widgets/emptyState.dart';
 import 'package:demo/ui/widgets/errorState.dart';
@@ -77,7 +78,7 @@ class _ProductListState extends State<ProductList>
                 );
               }
               return ListView.builder(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(Constants.number16),
                 itemCount: state.products.length,
                 itemBuilder: (context, index) {
                   final product = state.products[index];
