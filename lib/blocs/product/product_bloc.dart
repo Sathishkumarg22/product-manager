@@ -14,18 +14,18 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     on<SearchProducts>(_onSearchProducts);
   }
 
-  Future<void> _onLoadProducts(
-    LoadProducts event,
-    Emitter<ProductState> emit,
-  ) async {
-    emit(ProductLoading());
-    try {
-      final products = await productRepository.getProducts();
-      emit(ProductLoaded(products: products));
-    } catch (e) {
-      emit(ProductError(message: e.toString(), error: ''));
-    }
+ Future<void> _onLoadProducts(
+  LoadProducts event,
+  Emitter<ProductState> emit,
+) async {
+  emit(ProductLoading());
+  try {
+    final products = await productRepository.getProducts();
+    emit(ProductLoaded(products: products));
+  } catch (e) {
+    emit(ProductError(message: 'Unexpected error: $e', error: 'Unknown error'));
   }
+}
 
   Future<void> _onAddProduct(
     AddProduct event,

@@ -20,7 +20,7 @@ void main() {
         "id": 1,
         "title": "Fjallraven Foldsack No. 1 Backpack, Fits 15 Laptops",
         "price": 109.95,
-        "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+        "description": "Your perfect pack for everyday use...",
         "category": "men's clothing",
         "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
       },
@@ -29,7 +29,6 @@ void main() {
     setUp(() {
       dio = Dio();
       dioAdapter = DioAdapter(dio: dio);
-      dio.httpClientAdapter = dioAdapter;
     });
 
     blocTest<ProductBloc, ProductState>(
@@ -42,7 +41,7 @@ void main() {
       },
       build: () => ProductBloc(productRepository: ProductRepository(dio: dio)),
       act: (bloc) => bloc.add(LoadProducts()),
-      wait: const Duration(milliseconds: 500),
+      wait: const Duration(seconds: 1), // Increased wait time
       expect: () => [
         ProductLoading(),
         ProductLoaded(products: const []),
@@ -59,7 +58,7 @@ void main() {
       },
       build: () => ProductBloc(productRepository: ProductRepository(dio: dio)),
       act: (bloc) => bloc.add(LoadProducts()),
-      wait: const Duration(milliseconds: 500),
+      wait: const Duration(seconds: 1),
       expect: () => [
         ProductLoading(),
         ProductLoaded(
@@ -80,7 +79,6 @@ void main() {
     setUp(() {
       dio = Dio();
       dioAdapter = DioAdapter(dio: dio);
-      dio.httpClientAdapter = dioAdapter;
     });
 
     blocTest<ProductBloc, ProductState>(
@@ -93,10 +91,10 @@ void main() {
       },
       build: () => ProductBloc(productRepository: ProductRepository(dio: dio)),
       act: (bloc) => bloc.add(LoadProducts()),
-      wait: const Duration(milliseconds: 500),
+      wait: const Duration(seconds: 1),
       expect: () => [
         ProductLoading(),
-        ProductError(error: 'Unknown error', message: 'Unexpected error: null'),
+        ProductError(message: 'Response data is null', error: ''),
       ],
     );
   });

@@ -22,6 +22,7 @@ class ProductRepository {
         throw 'Error fetching products: ${e.message}';
       }
     } catch (e) {
+      print('Unexpected error: $e');
       throw 'Unexpected error: $e';
     }
   }
